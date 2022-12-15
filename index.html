@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script>
+	// 1) Crear una conexión con un : objeto XHR.
+		const conexion = new XMLHttpRequest();
+	// 2) Configurar la conexión (decirle a donde nos vamos a conectar (URL) y el metodo con el que nos vamos a conectar).
+		conexion.open("GET","prueba.txt");
+	// 3) Enviar la petición.
+		conexion.send();
+	// 4) Esperar la respuesta (string(hipertexto)) y gestionarla.(asíncrono).
+		conexion.addEventListener("load", function(){
+			console.log(conexion.responseText)
+		});
+		/* conexion tiene que escuchar el evento "load" (cuando este lista la respuesta) y luego le lanzare un función al consol.log y cuando este lista me enviara a esta una respuesta de texto*/
+
+	</script>
+</body>
+</html>
