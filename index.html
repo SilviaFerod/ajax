@@ -6,7 +6,9 @@
 	<title></title>
 </head>
 <body>
+	<ul></ul>
 	<script>
+		const lista = document.querySelector("ul");
 	// 1) Crear una conexión con un : objeto XHR.
 		const conexion = new XMLHttpRequest();
 	// 2) Configurar la conexión (decirle a donde nos vamos a conectar (URL) y el metodo con el que nos vamos a conectar).
@@ -15,9 +17,16 @@
 		conexion.send();
 	// 4) Esperar la respuesta (string(hipertexto)) y gestionarla.(asíncrono).
 		conexion.addEventListener("load", function(){
-			console.log(conexion.responseText)
+			conexion.responseText.split(",").forEach( palabra => {
+				let li = document.createElement("li");
+				li.innerHTML = palabra;
+				lista.appendChild(li);
+			})
 		});
 		/* conexion tiene que escuchar el evento "load" (cuando este lista la respuesta) y luego le lanzare un función al consol.log y cuando este lista me enviara a esta una respuesta de texto*/
+
+
+	//por cada palabra separada por comas que se cree un li dentro del ul
 
 	</script>
 </body>
